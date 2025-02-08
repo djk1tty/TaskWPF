@@ -13,10 +13,10 @@ namespace WPF_Task.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Kolokolcev223TaskDbEntities : DbContext
+    public partial class InternetShopEntities : DbContext
     {
-        public Kolokolcev223TaskDbEntities()
-            : base("name=Kolokolcev223TaskDbEntities")
+        public InternetShopEntities()
+            : base("name=InternetShopEntities")
         {
         }
     
@@ -25,10 +25,10 @@ namespace WPF_Task.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Good> Goods { get; set; }
         public virtual DbSet<Request> Requests { get; set; }
-        public virtual DbSet<RequestsStatus> RequestsStatuses { get; set; }
+        public virtual DbSet<RequestStatus> RequestStatuses { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserType> UserTypes { get; set; }
     }
 }

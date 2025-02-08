@@ -12,17 +12,16 @@ namespace WPF_Task.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class RequestStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public RequestStatus()
         {
             this.Requests = new HashSet<Request>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Request> Requests { get; set; }

@@ -12,18 +12,19 @@ namespace WPF_Task.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UserType
+    public partial class Good
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserType()
+        public Good()
         {
-            this.Users = new HashSet<User>();
+            this.Requests = new HashSet<Request>();
         }
     
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Name { get; set; }
+        public int Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Request> Requests { get; set; }
     }
 }

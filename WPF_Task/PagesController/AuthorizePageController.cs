@@ -4,11 +4,17 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPF_Task.Models;
 
 namespace WPF_Task.PagesController
 {
     public class AuthorizePageController
     {
+        private InternetShopEntities dbConnection;
+        public AuthorizePageController()
+        {
+            dbConnection = new InternetShopEntities();
+        }
         public User FindUserByLoginAndPassword(string login, string password)
         {
             if (login == "")
@@ -24,7 +30,7 @@ namespace WPF_Task.PagesController
             User user;
             try
             {
-                user = DbConnector.KondiEntities.Users.FirstOrDefault(u => u.Login == login && u.Password == password);
+                user = dbConnection.Users.FirstOrDefault(u => u.Login == login && u.Password == password);
             }
             catch (Exception e)
             {
@@ -33,7 +39,7 @@ namespace WPF_Task.PagesController
 
             if (user == null)
             {
-                throw new Exception("Ошибка. Пользователь с такоей парой логин и пароль не найден.");
+                throw new Exception("Ошибка. Пользователь с такой парой логин и пароль не найден.");
             }
 
             return user;

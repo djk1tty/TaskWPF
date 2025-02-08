@@ -14,16 +14,16 @@ namespace WPF_Task.Models
     
     public partial class Request
     {
-        public int Id { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public Nullable<int> ClientId { get; set; }
-        public Nullable<int> MasterId { get; set; }
-        public Nullable<int> RequestStatusId { get; set; }
+        public long Id { get; set; }
+        public long GoodsId { get; set; }
+        public long ClientId { get; set; }
+        public long MasterId { get; set; }
+        public int StatusId { get; set; }
         public Nullable<System.DateTime> CompletionDate { get; set; }
-        public Nullable<System.DateTime> StartDate { get; set; }
+        public System.DateTime StartDate { get; set; }
     
-        public virtual Product Product { get; set; }
-        public virtual RequestsStatus RequestsStatus { get; set; }
+        public virtual Good Good { get; set; }
+        public virtual RequestStatus RequestStatus { get; set; }
         public virtual User User { get; set; }
         public virtual User User1 { get; set; }
     }

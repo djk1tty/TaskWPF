@@ -110,36 +110,37 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Connect.cs" />
     <Compile Include="Models\DataStorage.cs" />
-    <Compile Include="Models\Product.cs">
-      <DependentUpon>UsersModel.tt</DependentUpon>
+    <Compile Include="Models\Good.cs">
+      <DependentUpon>InternetShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InternetShopModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InternetShopModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InternetShopModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InternetShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InternetShopModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InternetShopModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Request.cs">
-      <DependentUpon>UsersModel.tt</DependentUpon>
+      <DependentUpon>InternetShopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RequestsStatus.cs">
-      <DependentUpon>UsersModel.tt</DependentUpon>
+    <Compile Include="Models\RequestStatus.cs">
+      <DependentUpon>InternetShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>InternetShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>UsersModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UsersModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UsersModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UsersModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UsersModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UsersModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UsersModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserType.cs">
-      <DependentUpon>UsersModel.tt</DependentUpon>
+      <DependentUpon>InternetShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PagesController\AuthorizePageController.cs" />
     <Compile Include="Pages\AdminMainPage.xaml.cs">
@@ -183,12 +184,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\UsersModel.edmx">
+    <EntityDeploy Include="Models\InternetShopModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UsersModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>InternetShopModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\UsersModel.edmx.diagram">
-      <DependentUpon>UsersModel.edmx</DependentUpon>
+    <None Include="Models\InternetShopModel.edmx.diagram">
+      <DependentUpon>InternetShopModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -200,19 +201,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\UsersModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>UsersModel.Context.cs</LastGenOutput>
-      <DependentUpon>UsersModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\UsersModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UsersModel.edmx</DependentUpon>
-      <LastGenOutput>UsersModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Models\InternetShopModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InternetShopModel.edmx</DependentUpon>
+      <LastGenOutput>InternetShopModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\InternetShopModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InternetShopModel.edmx</DependentUpon>
+      <LastGenOutput>InternetShopModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
