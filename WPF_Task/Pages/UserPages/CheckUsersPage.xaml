@@ -33,5 +33,7 @@
         </DataGrid>
         <Button HorizontalAlignment="Left" Click="ButtonAddNewUser_Click" Margin="233,13,0,13" Width="187" Grid.Row="1">Добавить нового пользователя</Button>
         <Button Content="Удалить пользователя" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="169" Click="ButtonDeleteUser_Click"/>
+        <Label Content="Поиск:" HorizontalAlignment="Left" Margin="478,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="25" Width="46"/>
+        <TextBox x:Name="TextBoxFindByName" HorizontalAlignment="Left" Margin="529,0,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" TextChanged="TextBoxFindByName_TextChanged" Height="18"/>
     </Grid>
 </Page>

@@ -51,5 +51,18 @@ namespace WPF_Task.Pages
             DataStorage.CurrentUser = (User)this.GridUsersInformation.SelectedItem;
             NavigationService.Navigate(new UpdateUserPage());
         }
+
+        private void TextBoxFindByName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchName = TextBoxFindByName.Text;
+
+            if(searchName.Length == 0)
+            {
+                return;
+            }
+
+            this.GridUsersInformation.ItemsSource = null;
+            this.GridUsersInformation.ItemsSource = Connect.DbConnection.Users.Where(item => item.Name.Contains(searchName)).ToList();
+        }
     }
 }
