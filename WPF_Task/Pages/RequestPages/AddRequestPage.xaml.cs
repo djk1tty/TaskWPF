@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Task.Models;
+using WPF_Task.Repositories;
 
 namespace WPF_Task.Pages.RequestPages
 {
@@ -20,9 +22,22 @@ namespace WPF_Task.Pages.RequestPages
     /// </summary>
     public partial class AddRequestPage : Page
     {
+        RequestsRepositories requestsRepositories;
         public AddRequestPage()
         {
             InitializeComponent();
+            requestsRepositories = new RequestsRepositories();
+
+            ComboBoxSelectedClient.ItemsSource = requestsRepositories.GetAllUsers().Where(item => item.RoleId == 3);
+            ComboBoxSelectedClient.DisplayMemberPath = "Name" + "Surname" + "PhoneNumber";
+
+            ComboBoxSelectedGoods.ItemsSource = requestsRepositories.GetAllGoods();
+            ComboBoxSelectedGoods.DisplayMemberPath = "Name";
+        }
+
+        private void AddNewRequest_Click(object sender, RoutedEventArgs e)
+        {
+            requestsRepositories.AddNewRequest((((User)ComboBoxSelectedClient.SelectedItem).Id), (((Good)ComboBoxSelectedGoods.SelectedItem).Id));
         }
     }
 }

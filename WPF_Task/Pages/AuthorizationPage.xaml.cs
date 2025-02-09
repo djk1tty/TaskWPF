@@ -37,9 +37,9 @@ namespace WPF_Task.Pages
              string login = TextBoxLogin.Text;
              string password = TextBoxPassword.Text;
 
-            DataStorage.User = _authorizePageController.FindUserByLoginAndPassword(login, password);
+            DataStorage.CurrentUser = _authorizePageController.FindUserByLoginAndPassword(login, password);
 
-            switch(DataStorage.User.UserTypeId)
+            switch(DataStorage.CurrentUser.RoleId)
                 {
                     case 1:
                         NavigationService.Navigate(new AdminMainPage());

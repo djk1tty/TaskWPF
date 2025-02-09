@@ -10,16 +10,11 @@ namespace WPF_Task.PagesController
 {
     public class AuthorizePageController
     {
-        private InternetShopEntities dbConnection;
-        public AuthorizePageController()
+        public User FindUserByLoginAndPassword(string name, string password)
         {
-            dbConnection = new InternetShopEntities();
-        }
-        public User FindUserByLoginAndPassword(string login, string password)
-        {
-            if (login == "")
+            if (name == "")
             {
-                throw new Exception("Ошибка. Логин не заполнен.");
+                throw new Exception("Ошибка. Имя не заполнено.");
             }
 
             if (password == "")
@@ -30,9 +25,9 @@ namespace WPF_Task.PagesController
             User user;
             try
             {
-                user = dbConnection.Users.FirstOrDefault(u => u.Login == login && u.Password == password);
+                user = Connect.DbConnection.Users.FirstOrDefault(u => u.Name == name && u.Password == password);
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 throw new Exception("Ошибка соединения с БД");
             }
@@ -43,6 +38,6 @@ namespace WPF_Task.PagesController
             }
 
             return user;
+            }
         }
     }
-}

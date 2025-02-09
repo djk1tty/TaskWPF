@@ -9,6 +9,28 @@
       Title="ManagerMainPage">
 
     <Grid Background="White">
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Name="GridCustomerRequests" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="GridCustomerRequests_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя клиента" Binding="{Binding StartDate}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Товар" Binding="{Binding Goods.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding Goods.Price}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Время принятие" Binding= "{Binding StartDate}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Время завершение" Binding= "{Binding ComplitionDate}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Статус заявки" Binding="{Binding RequestStatus.Name}"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Width="150">Редактировать заявку</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            <Button Grid.Row="1" Content="Добавить заявку" Name="ButtonAddNewRequest" Click="ButtonAddNewRequest_Click"></Button>
+        </DataGrid>
     </Grid>
 </Page>

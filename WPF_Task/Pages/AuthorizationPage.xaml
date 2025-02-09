@@ -11,9 +11,9 @@
     <Grid Background="White">
         <StackPanel>
             <TextBlock TextAlignment="Center">Логин</TextBlock>
-            <TextBox Width="150" Name="TextBoxLogin" TextChanged="TextBoxLogin_TextChanged"></TextBox>
+            <TextBox Width="150" Name="TextBoxLogin"></TextBox>
             <TextBlock TextAlignment="Center">Пароль</TextBlock>
-            <TextBox Width="150" Name="TextBoxPassword" Margin="0,0,0,20" TextChanged="TextBoxPassword_TextChanged"></TextBox>
+            <TextBox Width="150" Name="TextBoxPassword" Margin="0,0,0,20"></TextBox>
             <Button Name="ButtonLogin" Width="100" Click="ButtonLogin_Click">Авторизация</Button>
         </StackPanel>
     </Grid>

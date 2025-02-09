@@ -24,5 +24,14 @@ namespace WPF_Task.Pages
         {
             InitializeComponent();
         }
+        private void ButtonAddNewRequest_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonCheckUsersPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CheckUsersPage());
+        }
     }
 }

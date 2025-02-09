@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Task.Pages.RequestPages;
 
 namespace WPF_Task.Pages
 {
@@ -23,6 +24,16 @@ namespace WPF_Task.Pages
         public ManagerMainPage()
         {
             InitializeComponent();
+        }
+
+        private void ButtonAddNewRequest_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddRequestPage());
+        }
+
+        private void GridCustomerRequests_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
