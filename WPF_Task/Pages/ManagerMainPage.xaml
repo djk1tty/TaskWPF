@@ -32,5 +32,6 @@
             </DataGrid.Columns>
             <Button Grid.Row="1" Content="Добавить заявку" Name="ButtonAddNewRequest" Click="ButtonAddNewRequest_Click"></Button>
         </DataGrid>
+        <Button Content="Удалить заявку" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="92" Click="ButtonDeleteRequest_Click"/>
     </Grid>
 </Page>

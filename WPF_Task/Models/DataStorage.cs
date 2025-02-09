@@ -9,5 +9,6 @@ namespace WPF_Task.Models
     internal class DataStorage
     {
         public static User CurrentUser { get; set; }
+        public static Request CurrentRequest { get; set; }
     }
 }
