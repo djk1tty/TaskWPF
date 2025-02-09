@@ -37,6 +37,12 @@ namespace WPF_Task.Pages
         }
         private void ButtonDeleteUser_Click(object sender, RoutedEventArgs e)
         {
+            if(GridUsersInformation.SelectedItem == null)
+            {
+                MessageBox.Show("Вы не выбрали пользователя для удаления");
+                return;
+            }
+            
             DataStorage.CurrentUser = (User)GridUsersInformation.SelectedItem;
             usersRepository.DeleteUserFromDb(DataStorage.CurrentUser.Id);
             DataStorage.CurrentUser = null;
@@ -48,6 +54,12 @@ namespace WPF_Task.Pages
         }
         private void ButtonUpdateUser_Click(Object sender, RoutedEventArgs e)
         {
+            if(GridUsersInformation.SelectedItem == null)
+            {
+                MessageBox.Show("Вы не выбрали пользователя для обновления");
+                return;
+            }
+
             DataStorage.CurrentUser = (User)this.GridUsersInformation.SelectedItem;
             NavigationService.Navigate(new UpdateUserPage());
         }

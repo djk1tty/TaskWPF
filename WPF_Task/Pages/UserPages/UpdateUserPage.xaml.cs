@@ -42,14 +42,57 @@ namespace WPF_Task.Pages.UserPages
 
         private void ButtonUpdateUser_Click(object sender, RoutedEventArgs e)
         {
-            usersRepository.UpdateUserInDb(DataStorage.CurrentUser.Id, 
-                TextBoxName.Text, 
-                TextBoxSurname.Text, 
-                TextBoxPhoneNumber.Text, 
-                TextBoxEmail.Text, 
-                TextBoxPassword.Text, 
-                ((Role)ComboBoxRole.SelectedItem).Id
-                );
+            if (TextBoxName.Text.Length == 0)
+            {
+                MessageBox.Show("Длина имени не может быть 0");
+                return;
+            }
+
+            if (TextBoxSurname.Text.Length == 0)
+            {
+                MessageBox.Show("Длина имени не может быть 0");
+                return;
+            }
+
+            if (TextBoxPhoneNumber.Text.Length == 0)
+            {
+                MessageBox.Show("Длина имени не может быть 0");
+                return;
+            }
+
+            if (TextBoxEmail.Text.Length == 0)
+            {
+                MessageBox.Show("Длина имени не может быть 0");
+                return;
+            }
+
+            if (TextBoxPassword.Text.Length == 0)
+            {
+                MessageBox.Show("Длина имени не может быть 0");
+                return;
+            }
+
+            if (ComboBoxRole.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите роль пользователя");
+                return;
+            }
+
+            try
+            {
+                usersRepository.UpdateUserInDb(DataStorage.CurrentUser.Id,
+                    TextBoxName.Text,
+                    TextBoxSurname.Text,
+                    TextBoxPhoneNumber.Text,
+                    TextBoxEmail.Text,
+                    TextBoxPassword.Text,
+                    ((Role)ComboBoxRole.SelectedItem).Id
+                    );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось изменить данные пользователя");
+            }
             
             EventPagesAggregator.NotifyDataUpdated();
             DataStorage.CurrentUser = null;

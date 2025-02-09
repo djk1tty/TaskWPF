@@ -34,15 +34,65 @@ namespace WPF_Task.Pages.UserPages
 
         private void ButtonAddNewUser_Click(object sender, RoutedEventArgs e)
         {
-            usersRepository.AddNewUser
-                (
-                TextBoxName.Text, 
-                TextBoxSurname.Text, 
-                TextBoxPhoneNumber.Text, 
-                TextBoxEmail.Text, 
-                TextBoxPassword.Text, 
-                ((Role)ComboBoxRole.SelectedItem).Id
-                );
+            if(TextBoxName.Text.Length == 0)
+            {
+                MessageBox.Show("Длина имени не может быть 0");
+                return;
+            }
+
+            if (TextBoxSurname.Text.Length == 0)
+            {
+                MessageBox.Show("Длина имени не может быть 0");
+                return;
+            }
+
+            if (TextBoxPhoneNumber.Text.Length == 0)
+            {
+                MessageBox.Show("Длина имени не может быть 0");
+                return;
+            }
+
+            if (TextBoxEmail.Text.Length == 0)
+            {
+                MessageBox.Show("Длина имени не может быть 0");
+                return;
+            }
+
+            if (TextBoxPassword.Text.Length == 0)
+            {
+                MessageBox.Show("Длина имени не может быть 0");
+                return;
+            }
+
+            if (ComboBoxRole.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите роль пользователя");
+                return;
+            }
+            try
+            {
+                usersRepository.AddNewUser
+                    (
+                    TextBoxName.Text,
+                    TextBoxSurname.Text,
+                    TextBoxPhoneNumber.Text,
+                    TextBoxEmail.Text,
+                    TextBoxPassword.Text,
+                    ((Role)ComboBoxRole.SelectedItem).Id
+                    );
+
+                TextBoxName.Clear();
+                TextBoxSurname.Clear();
+                TextBoxPhoneNumber.Clear();
+                TextBoxEmail.Clear();
+                TextBoxPassword.Clear();
+                ComboBoxRole.SelectedItem = null;
+                MessageBox.Show("Пользователь успешно добавлен");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка! Не удалось добавить пользователя");
+            }
             
             EventPagesAggregator.NotifyDataUpdated();
         }
